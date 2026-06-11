@@ -1,6 +1,9 @@
 import { Transaction } from "./fetchData";
 
-export function countPaymentMethod (data: Transaction[]) {
+export function countPaymentMethod (data: Transaction[]): { 
+    creditCard: number, 
+    ticket: number ,
+} {
     let creditCard = 0, ticket = 0;
     data.forEach(item => {
         if (item["Forma de Pagamento"] === "Cartão de Crédito") creditCard++;
