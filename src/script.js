@@ -9,7 +9,6 @@ async function handleData() {
         totalValue = calculateTotal(data);
         paymentMethods = countPaymentMethod(data);
         statusCount = countStatus(data);
-        console.log(statusCount);
     }
 }
 handleData();
