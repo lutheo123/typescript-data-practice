@@ -2,7 +2,7 @@ type FormaPagamento = "Cartão de Crédito" | "Boleto";
 type Status = "Paga" | "Aguardando Pagamento" | "Recusada pela operadora de cartão" | "Estornada";
 type ClienteNovo = 0 | 1
 
-export interface Transacao {
+export interface Transaction {
     ["Cliente Novo"]: ClienteNovo;
     Data: string;
     Email: string;
