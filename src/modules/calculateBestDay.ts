@@ -9,7 +9,18 @@ export function stringToDate(date: string) {
     return new Date(year, month-1, day, hours, minutes);
 }
 
-const weekDays = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+const weekDays = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
 export function calculateBestDay(data: Transaction[]) {
-    
+    const dataDays = data.map(item => stringToDate(item.Data).getDay());
+    let curDay = -1, count = 0;
+    for (let i = 0; i < dataDays.length; i++) {
+        if (dataDays[i] !== curDay) count--;
+        else count++;
+        
+        if (count <= 0) {
+            curDay = dataDays[i];
+            count = 1;
+        }
+    }
+    return curDay;
 }
