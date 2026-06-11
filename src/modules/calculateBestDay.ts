@@ -12,15 +12,15 @@ export function stringToDate(date: string) {
 const weekDays = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
 export function calculateBestDay(data: Transaction[]): string {
     const dataDays = data.map(item => stringToDate(item.Data).getDay());
-    let curDay = -1, count = 0;
+    let bestDay = 0, maxCount = 0, hashMap = new Map<number, number>();
     for (let i = 0; i < dataDays.length; i++) {
-        if (dataDays[i] !== curDay) count--;
-        else count++;
-        
-        if (count <= 0) {
-            curDay = dataDays[i];
-            count = 1;
+        const count = (hashMap.get(dataDays[i]) || 0) + 1
+        hashMap.set(dataDays[i], count);
+
+        if (count > maxCount) {
+            maxCount = count;
+            bestDay = dataDays[i];
         }
     }
-    return weekDays[curDay];
+    return weekDays[bestDay];
 }
