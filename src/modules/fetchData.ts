@@ -1,12 +1,16 @@
+type FormaPagamento = "Cartão de Crédito" | "Boleto";
+type Status = "Paga" | "Aguardando Pagamento" | "Recusada pela operadora de cartão" | "Estornada";
+type ClienteNovo = 0 | 1
+
 export interface Transacao {
-    "Cliente Novo": number;
+    ["Cliente Novo"]: ClienteNovo;
     Data: string;
     Email: string;
-    "Forma de Pagamento": string;
+    ["Forma de Pagamento"]: FormaPagamento;
     ID: number;
     Nome: string;
-    Status: string;
-    "Valor (R$)": string;
+    Status: Status;
+    ["Valor (R$)"]: string;
 }
 
 export async function fetchData<T>(url: string): Promise<T | null> {
