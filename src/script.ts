@@ -4,13 +4,11 @@ import { countPaymentMethod } from "./modules/countPaymentMethod.js";
 
 async function handleData() {
     const data = await fetchData<Transaction[]>("https://api.origamid.dev/json/transacoes.json");
-    let totalValue: number = 0;
-    let paymentMethods: object = {}
+    let totalValue: number = 0, paymentMethods: object = {};
     if (data) {
         totalValue = calculateTotal(data);
         paymentMethods = countPaymentMethod(data);
     }
-
 }
 
 handleData();
