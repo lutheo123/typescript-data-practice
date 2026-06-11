@@ -6,5 +6,7 @@ export async function fetchData(url) {
         const dataJSON = await response.json();
         return dataJSON;
     }
-    catch (e) { }
+    catch (e) {
+        return null;
+    }
 }
