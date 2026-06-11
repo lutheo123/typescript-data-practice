@@ -1,7 +1,9 @@
 import { fetchData } from "./modules/fetchData.js";
+import { calculateTotal } from "./modules/calculateTotal.js";
 async function handleData() {
     const data = await fetchData("https://api.origamid.dev/json/transacoes.json");
-    const alfred = data?.filter(item => item.Status == "Estornada");
-    console.log(alfred);
+    if (data) {
+        calculateTotal(data);
+    }
 }
 handleData();

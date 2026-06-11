@@ -1,7 +1,10 @@
-import { fetchData, Transacao } from "./modules/fetchData.js";
+import { fetchData, Transaction } from "./modules/fetchData.js";
+import { calculateTotal } from "./modules/calculateTotal.js";
 
 async function handleData() {
-    const data = await fetchData<Transacao[]>("https://api.origamid.dev/json/transacoes.json");
+    const data = await fetchData<Transaction[]>("https://api.origamid.dev/json/transacoes.json");
+    let totalValue;
+    if (data) totalValue = calculateTotal(data);
 }
 
 handleData();
