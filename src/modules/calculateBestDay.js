@@ -18,5 +18,5 @@ export function calculateBestDay(data) {
             count = 1;
         }
     }
-    return curDay;
+    return weekDays[curDay];
 }

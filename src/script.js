@@ -5,12 +5,12 @@ import { countStatus } from "./modules/countStatus.js";
 import { calculateBestDay } from "./modules/calculateBestDay.js";
 async function handleData() {
     const data = await fetchData("https://api.origamid.dev/json/transacoes.json");
-    let totalValue = 0, paymentMethods = {}, statusCount = {};
+    let totalValue, paymentMethods, statusCount, bestDay;
     if (data) {
         totalValue = calculateTotal(data);
         paymentMethods = countPaymentMethod(data);
         statusCount = countStatus(data);
-        console.log(calculateBestDay(data));
+        bestDay = calculateBestDay(data);
     }
 }
 handleData();
