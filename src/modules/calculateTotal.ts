@@ -1,0 +1,2 @@
+import { Transacao } from "./fetchData";
+
