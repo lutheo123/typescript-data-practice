@@ -10,7 +10,7 @@ export function stringToDate(date: string) {
 }
 
 const weekDays = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
-export function calculateBestDay(data: Transaction[]) {
+export function calculateBestDay(data: Transaction[]): string {
     const dataDays = data.map(item => stringToDate(item.Data).getDay());
     let curDay = -1, count = 0;
     for (let i = 0; i < dataDays.length; i++) {
@@ -22,5 +22,5 @@ export function calculateBestDay(data: Transaction[]) {
             count = 1;
         }
     }
-    return curDay;
+    return weekDays[curDay];
 }

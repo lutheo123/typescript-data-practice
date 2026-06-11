@@ -7,11 +7,12 @@ import { calculateBestDay } from "./modules/calculateBestDay.js";
 async function handleData() {
     const data = await fetchData<Transaction[]>("https://api.origamid.dev/json/transacoes.json");
     
-    let totalValue: number = 0, paymentMethods: object = {}, statusCount: object = {};
+    let totalValue: number, paymentMethods: object, statusCount: object, bestDay: string;
     if (data) {
         totalValue = calculateTotal(data);
         paymentMethods = countPaymentMethod(data);
         statusCount = countStatus(data);
+        bestDay = calculateBestDay(data);
     }
 }
 
