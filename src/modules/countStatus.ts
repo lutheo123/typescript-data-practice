@@ -11,7 +11,7 @@ export function countStatus(data: Transaction[]): {
         const dataStatus = item.Status;
         if (dataStatus === "Paga") paid++;
         else if (dataStatus === "Recusada pela operadora de cartão") refused++;
-        else if (dataStatus === "Aguardando Pagamento") waiting++;
+        else if (dataStatus === "Aguardando pagamento") waiting++;
         else if (dataStatus === "Estornada") reversed++;
     })
 

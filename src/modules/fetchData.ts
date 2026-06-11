@@ -1,5 +1,5 @@
 type FormaPagamento = "Cartão de Crédito" | "Boleto";
-type Status = "Paga" | "Aguardando Pagamento" | "Recusada pela operadora de cartão" | "Estornada";
+type Status = "Paga" | "Aguardando pagamento" | "Recusada pela operadora de cartão" | "Estornada";
 type ClienteNovo = 0 | 1
 
 export interface Transaction {
