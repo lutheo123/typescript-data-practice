@@ -5,6 +5,7 @@ import { countStatus } from "./modules/countStatus.js";
 
 async function handleData() {
     const data = await fetchData<Transaction[]>("https://api.origamid.dev/json/transacoes.json");
+    
     let totalValue: number = 0, paymentMethods: object = {}, statusCount: object = {};
     if (data) {
         totalValue = calculateTotal(data);
