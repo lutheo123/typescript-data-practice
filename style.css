@@ -1,0 +1,24 @@
+#data {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+}
+
+#nome {
+    grid-column: 1;
+}
+
+#email {
+    grid-column: 2;
+}
+
+#compra {
+    grid-column: 3;
+}
+
+#pagamento {
+    grid-column: 4;
+}
+
+#status {
+    grid-column: 5;
+}
