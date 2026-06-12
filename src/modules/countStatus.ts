@@ -1,11 +1,13 @@
 import { Transaction } from "./fetchData";
 
-export function countStatus(data: Transaction[]): {
+export interface TransactionStatus {
     paid: number,
     refused: number,
     waiting: number,
     reversed: number,
-} {
+}
+
+export function countStatus(data: Transaction[]): TransactionStatus{
     let paid = 0, refused = 0, waiting = 0, reversed = 0;
     data.forEach(item => {
         const dataStatus = item.Status;

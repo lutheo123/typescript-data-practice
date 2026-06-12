@@ -1,0 +1,51 @@
+p, h1, h3 {
+    padding: 0rem;
+    margin: 0rem;
+}
+
+h1, #status-day, #payment-method {
+    border-top: 5px solid #ffd4b0;
+    padding: .5rem;
+}
+
+p {
+    padding: .5rem 0rem;
+}
+
+#total {
+    padding: .5rem;
+    margin-bottom: .5rem;
+}
+
+#data {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    max-width: 1400px;
+    padding: .5rem;
+    margin-top: .5rem;
+}
+
+#nome {
+    grid-column: 1;
+    padding: .5rem;
+}
+
+#email {
+    grid-column: 2;
+    padding: .5rem;
+}
+
+#compra {
+    grid-column: 3;
+    padding: .5rem;
+}
+
+#pagamento {
+    grid-column: 4;
+    padding: .5rem;
+}
+
+#status {
+    grid-column: 5;
+    padding: .5rem;
+}
