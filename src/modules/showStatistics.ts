@@ -24,7 +24,7 @@ export function showStatusAndDay (statusCount: TransactionStatus, bestDay: strin
     }
 }
 
-export function showTotal (totalValue: number) {
+export function showTotal (totalValue: number): void {
     let totalString = String(totalValue);
     if (Number(totalString[totalString.length - 1]) && Number(totalString[totalString.length - 2])) {
         if (Number(totalString[totalString.length - 3])) totalString = totalString + ",00";
