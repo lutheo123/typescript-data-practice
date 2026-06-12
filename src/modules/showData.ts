@@ -5,13 +5,13 @@ export function showData (data: Transaction[]): void {
     if (dataDiv && dataDiv instanceof HTMLDivElement) {
         for (let i = 0; i < data.length; i++) {
             let backColor = 'white';
-            if (i % 2 == 0) backColor = '#dddddd'
+            if (i % 2 === 0) backColor = '#ffd4b0'
             dataDiv.innerHTML += `
-                <p id="nome">${data[i].Nome}</p>
-                <p id="email">${data[i].Email}</p>
-                <p id="compra">R$ ${data[i]["Valor (R$)"]}</p>
-                <p id="pagamento">${data[i]["Forma de Pagamento"]}</p>
-                <p id="status">${data[i].Status}</p>
+                <p id="nome" style="background-color: ${backColor}">${data[i].Nome}</p>
+                <p id="email" style="background-color: ${backColor}">${data[i].Email}</p>
+                <p id="compra" style="background-color: ${backColor}">R$ ${data[i]["Valor (R$)"]}</p>
+                <p id="pagamento" style="background-color: ${backColor}">${data[i]["Forma de Pagamento"]}</p>
+                <p id="status" style="background-color: ${backColor}">${data[i].Status}</p>
             `
         }
     }
