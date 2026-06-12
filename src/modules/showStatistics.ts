@@ -23,3 +23,24 @@ export function showStatusAndDay (statusCount: TransactionStatus, bestDay: strin
         `
     }
 }
+
+export function showTotal (totalValue: number) {
+    let totalString = String(totalValue);
+    if (Number(totalString[totalString.length - 1]) && Number(totalString[totalString.length - 2])) {
+        if (Number(totalString[totalString.length - 3])) totalString = totalString + ",00";
+    }
+    else totalString = totalString + "0";
+
+    totalString = totalString.replace(".", ",");
+    const placeDecimal = totalString.indexOf(",")
+    for (let i = placeDecimal-1; i >= 0; i--) {
+        if ((i - placeDecimal) % 3 === 0) {
+            totalString = `${totalString.slice(0, i)}.${totalString.slice(i)}`
+        }
+    }
+
+    const totalP = document.getElementById('total');
+    if (totalP && totalP instanceof HTMLParagraphElement) {
+        totalP.innerText = `Total: R$ ${totalString}`
+    }
+}
