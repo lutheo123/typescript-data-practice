@@ -3,7 +3,7 @@ import { calculateTotal } from "./modules/calculateTotal.js";
 import { countPaymentMethod } from "./modules/countPaymentMethod.js";
 import { countStatus } from "./modules/countStatus.js";
 import { calculateBestDay } from "./modules/calculateBestDay.js";
-import { showPaymentMethods } from "./modules/showStatistics.js";
+import { showPaymentMethods, showStatusAndDay } from "./modules/showStatistics.js";
 async function handleData() {
     const data = await fetchData("https://api.origamid.dev/json/transacoes.json");
     let totalValue, paymentMethods, statusCount, bestDay;
@@ -13,6 +13,7 @@ async function handleData() {
         statusCount = countStatus(data);
         bestDay = calculateBestDay(data);
         showPaymentMethods(paymentMethods);
+        showStatusAndDay(statusCount, bestDay);
     }
 }
 handleData();
